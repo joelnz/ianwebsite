@@ -1,28 +1,76 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Coming Soon</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        background: #000;
-        color: #fff;
-        flex-direction: column;
-      }
-      h1 {
-        font-size: 3em;
-        letter-spacing: 2px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Something cool is coming soon</h1>
-    <p>-Ian</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ian Cocks – Landscape Paintings</title>
+  <meta name="description" content="Landscape paintings by Ian Cocks, featuring scenes from Christchurch, Banks Peninsula, and Canterbury. Prints available for purchase.">
+  <meta name="keywords" content="Ian Cocks, Landscape Painting, Christchurch Art, Banks Peninsula, Canterbury Art, Buy Prints, New Zealand Art">
+  <meta name="author" content="Ian Cocks">
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:title" content="Ian Cocks – Landscape Paintings">
+  <meta property="og:description" content="Explore and purchase landscape paintings by Ian Cocks, inspired by the natural beauty of Christchurch and Canterbury.">
+  <meta property="og:image" content="https://yourdomain.com/path-to-preview.jpg"> <!-- Replace with actual image -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+    }
+
+    .fixed-top-left {
+      position: fixed;
+      top: 20px;
+      left: 15px;
+      font-weight: bold;
+      z-index: 10;
+    }
+
+    .fixed-bottom-left {
+      position: fixed;
+      bottom: 20px;
+      left: 15px;
+      font-size: 14px;
+      z-index: 10;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      padding-left: 20%;
+      padding-top:20px;
+      padding-right:20px;
+    }
+
+    .image-container img {
+      width: calc(80vw - 20px);
+      height: auto;
+      object-fit: cover;
+      margin-bottom:20px;
+    }
+    u{
+      color:blue;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fixed-top-left">Ian Cocks</div>
+  <div class="fixed-bottom-left">Banks Peninsula, Canterbury<br><u>Buy Prints</u></div>
+
+  <div class="image-container">
+    <img src="./1.jpeg" alt="Landscape Painting 1 by Ian Cocks">
+    <img src="./2.jpeg" alt="Landscape Painting 2 by Ian Cocks">
+    <img src="./3.jpeg" alt="Landscape Painting 3 by Ian Cocks">
+    <img src="./4.jpeg" alt="Landscape Painting 4 by Ian Cocks">
+  </div>
+
+</body>
 </html>
