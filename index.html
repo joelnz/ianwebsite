@@ -31,20 +31,10 @@
       font-weight: bold;
     }
 
-    footer {
-      padding: 10px 15px;
-      font-size: 14px;
-    }
-
-    footer u {
-      color: blue;
-      text-decoration: underline;
-    }
-
     .image-container {
       display: flex;
       flex-direction: column;
-      padding: 15px 15px;
+      padding: 15px;
     }
 
     .image-container img {
@@ -54,29 +44,45 @@
       margin-bottom: 20px;
     }
 
-    /* === Desktop tweaks === */
-    @media (min-width: 900px) {
-      .image-container {
-        padding-left: 20%;
-        padding-right: 20px;
-      }
-
-      header {
-        position: fixed;
-        top: 20px;
-        left: 15px;
-        z-index: 10;
-        padding:0;
-      }
-
-      footer {
-        position: fixed;
-        bottom: 20px;
-        left: 15px;
-        z-index: 10;
-        padding:0;
-      }
+    footer {
+      width: 100%;
+      padding: 15px;
+      font-family: "Times New Roman", serif;
+      line-height: 1.4;
+      font-size: 15px;
+      box-sizing: border-box;
     }
+
+    footer u {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    /* === Desktop styles === */
+@media (min-width: 900px) {
+  header {
+    position: fixed;
+    top: 20px;
+    left: 15px;
+    z-index: 10;
+    padding: 0;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 20px;
+    left: 15px;
+    width: 18%;
+    padding: 0;
+    z-index: 10;
+  }
+
+  .image-container {
+    margin-left: calc(18% + 30px); /* space for the fixed footer + buffer */
+    max-width: calc(100% - 18% - 50px); /* prevent overflowing the right */
+    padding-right: 20px;
+  }
+}
   </style>
 </head>
 <body>
@@ -91,14 +97,7 @@
   </div>
 
   <footer>
-<footer>
     Ian Cocks paints landscapes of the Banks Peninsula and surrounding Canterbury region. Original works and prints are available — please enquire for more information.
-<br>
-
-  </footer>
-
-<br />
-
   </footer>
 
 </body>
