@@ -1,104 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ian Cocks – Landscape Paintings</title>
-  <meta name="description" content="Landscape paintings by Ian Cocks, featuring scenes from Christchurch, Banks Peninsula, and Canterbury. Prints available for purchase." />
-  <meta name="keywords" content="Ian Cocks, Landscape Painting, Christchurch Art, Banks Peninsula, Canterbury Art, Buy Prints, New Zealand Art" />
-  <meta name="author" content="Ian Cocks" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ian Cocks – Landscape Paintings</title>
+    <meta
+      name="description"
+      content="Landscape paintings by Ian Cocks, featuring scenes from Christchurch, Banks Peninsula, and Canterbury. Prints available for purchase."
+    />
+    <meta
+      name="keywords"
+      content="Ian Cocks, Landscape Painting, Christchurch Art, Banks Peninsula, Canterbury Art, Buy Prints, New Zealand Art"
+    />
+    <meta name="author" content="Ian Cocks" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ian Cocks – Landscape Paintings" />
-  <meta property="og:description" content="Explore and purchase landscape paintings by Ian Cocks, inspired by the natural beauty of Christchurch and Canterbury." />
-  <meta property="og:image" content="https://yourdomain.com/path-to-preview.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ian Cocks – Landscape Paintings" />
+    <meta
+      property="og:description"
+      content="Explore and purchase landscape paintings by Ian Cocks, inspired by the natural beauty of Christchurch and Canterbury."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/path-to-preview.jpg"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com" />
 
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #fff;
-      color: #000;
-    }
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+        background: #fff;
+        color: #000;
+      }
 
-    header {
-      padding: 10px 15px;
-      font-weight: bold;
-    }
+      header {
+        padding: 25px 15px;
 
-    .image-container {
-      display: flex;
-      flex-direction: column;
-      padding: 15px;
-    }
+        font-family: 'Times New Roman', serif;
+        text-transform: uppercase;
+        letter-spacing: 0.0603em;
+        font-size: 15px;
+      }
 
-    .image-container img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
+      header img {
+        width: 35px;
+        position: absolute;
+        left: 38px;
+        mix-blend-mode: multiply;
+      }
 
-    footer {
-      width: 100%;
-      padding: 15px;
-      font-family: "Times New Roman", serif;
-      line-height: 1.4;
-      font-size: 15px;
-      box-sizing: border-box;
-    }
+      .image-container {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+      }
 
-    footer u {
-      color: blue;
-      text-decoration: underline;
-    }
+      .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 20px;
+      }
 
-    /* === Desktop styles === */
-@media (min-width: 900px) {
-  header {
-    position: fixed;
-    top: 20px;
-    left: 15px;
-    z-index: 10;
-    padding: 0;
-  }
+      footer {
+        width: 100%;
+        padding: 15px;
+        font-family: 'Times New Roman', serif;
+        line-height: 1.4;
+        font-size: 15px;
+        box-sizing: border-box;
+      }
 
-  footer {
-    position: fixed;
-    bottom: 20px;
-    left: 15px;
-    width: 18%;
-    padding: 0;
-    z-index: 10;
-  }
+      footer u {
+        color: blue;
+        text-decoration: underline;
+      }
 
-  .image-container {
-    margin-left: calc(18% + 30px); /* space for the fixed footer + buffer */
-    max-width: calc(100% - 18% - 50px); /* prevent overflowing the right */
-    padding-right: 20px;
-  }
-}
-  </style>
-</head>
-<body>
+      a,
+      a:visited {
+        color: black;
+      }
 
-  <header>Ian Cocks</header>
+      /* === Desktop styles === */
+      @media (min-width: 900px) {
+        header {
+          position: fixed;
+          top: 15px;
+          left: 15px;
+          z-index: 10;
+          padding: 0;
+        }
+        header img {
+          width: 35px;
+          position: absolute;
+          left: 23px;
+          mix-blend-mode: multiply;
+        }
 
-  <div class="image-container">
-    <img src="./1.jpeg" alt="Landscape Painting 1 by Ian Cocks" />
-    <img src="./2.jpeg" alt="Landscape Painting 2 by Ian Cocks" />
-    <img src="./3.jpeg" alt="Landscape Painting 3 by Ian Cocks" />
-    <img src="./4.jpeg" alt="Landscape Painting 4 by Ian Cocks" />
-  </div>
+        footer {
+          position: fixed;
+          bottom: 20px;
+          left: 15px;
+          width: 18%;
+          padding: 0;
+          z-index: 10;
+        }
 
-  <footer>
-    Ian Cocks paints landscapes of the Banks Peninsula and surrounding Canterbury region. Original works and prints are available — please enquire for more information.
-  </footer>
+        .image-container {
+          margin-left: calc(
+            18% + 30px
+          ); /* space for the fixed footer + buffer */
+          max-width: calc(
+            100% - 18% - 50px
+          ); /* prevent overflowing the right */
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      Ian Cocks
+      <img src="blot.png" alt="paint splotch" />
+    </header>
 
-</body>
+    <div class="image-container">
+      <img src="./3.jpeg" alt="Landscape Painting 3 by Ian Cocks" />
+      <img src="./4.jpeg" alt="Landscape Painting 4 by Ian Cocks" />
+      <img src="./1.jpeg" alt="Landscape Painting 1 by Ian Cocks" />
+      <img src="./2.jpeg" alt="Landscape Painting 2 by Ian Cocks" />
+    </div>
+
+    <footer>
+      Ian Cocks paints landscapes of the Banks Peninsula and surrounding
+      Canterbury region. Original works and prints are available — please
+      enquire for more information.<br /><br />
+
+      <span id="link"></span>
+    </footer>
+    <script>
+      const u = 'skcocdnai'; // reversed 'ian.cocks'
+      const d = 'moc.duolci'; // reversed 'example.com'
+
+      const email = `${u.split('').reverse().join('')}@${d
+        .split('')
+        .reverse()
+        .join('')}`;
+
+      // Reverse and split domain only on first dot for display
+      const reversedDomain = d.split('').reverse().join('');
+      const domainParts = reversedDomain.split('.');
+      const display = `Contact Ian`;
+
+      document.getElementById(
+        'link',
+      ).innerHTML = `<a href="mailto:${email}">${display}</a>`;
+    </script>
+  </body>
 </html>
