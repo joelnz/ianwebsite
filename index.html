@@ -90,8 +90,19 @@
     }
 
     .order-button:hover {
-      background: #000;
-      color: #fff;
+      background: #f0f0f0;
+      color: #000;
+    }
+
+    .green-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #2ecc71;
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      margin-top: -2px;
     }
 
     .print-options {
@@ -213,21 +224,22 @@
               ${p.year} — ${p.details}
             </div>
             <div class="order-section">
-              <div class="order-button" style="margin-right: 10px;" onclick="toggleOptions(${p.id})">Order a Print</div>
-              ${p.originalAvailable ? `<div class="order-button" onclick="toggleOriginal(${p.id})">Buy Original</div>` : ''}
+              <div class="order-button" style="margin-right: 4px;" onclick="toggleOptions(${p.id})">Order a Print</div>
+              ${p.originalAvailable ? `<div class="order-button" onclick="toggleOriginal(${p.id})"><span class="green-dot"></span>Buy Original</div>` : ''}
                              <div id="options-${p.id}" class="print-options">
                  <div style="margin-bottom: 25px;">
                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Giclée on Archival Paper</div>
                    <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
                      Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper.<br>
-                     Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.
+                     Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.<br>
+                     <span style="color: #444;">Measurements include a 40mm white border.</span>
                    </div>
                    <div class="option-item">
-                     <span>Half Size (Approx.)</span>
+                     <span>Half Size (250 x 170 mm)</span>
                      <span style="font-weight: bold;">${p.prices.half}</span>
                    </div>
                    <div class="option-item">
-                     <span>Full Size (${p.totalSize})</span>
+                     <span>Full Size (580 x 420 mm)</span>
                      <span style="font-weight: bold;">${p.prices.full}</span>
                    </div>
                  </div>
@@ -239,11 +251,11 @@
                      Gallery-ready without additional framing.
                    </div>
                    <div class="option-item">
-                     <span>Half Size (Approx.)</span>
+                     <span>Half Size (250 x 170 mm)</span>
                      <span style="font-weight: bold;">${p.prices.canvasHalf}</span>
                    </div>
                    <div class="option-item">
-                     <span>Full Size</span>
+                     <span>Full Size (${p.originalSize || p.size})</span>
                      <span style="font-weight: bold;">${p.prices.canvasFull}</span>
                    </div>
                  </div>
@@ -252,24 +264,21 @@
 
                  <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
                    <details>
-                     <summary style="cursor: pointer; font-size: 13px; color: #666;">View Full Details</summary>
+                     <summary style="cursor: pointer; font-size: 13px; color: #666;">View Production Specs</summary>
                      <div style="font-size: 13px; line-height: 1.6; color: #444; margin-top: 15px;">
-                       <strong>Artist:</strong> ${p.artist}<br>
-                       <strong>Title:</strong> ${p.title}<br>
-                       <strong>Medium:</strong> ${p.medium}<br>
-                       <strong>Dimensions:</strong> Image: ${p.imageSize} | Total (incl. border): ${p.totalSize}<br>
-                       <strong>Year of Original:</strong> ${p.year}<br>
+                       <strong>Original Medium:</strong> Acrylic Painting<br>
+                       <strong>Image Size:</strong> ${p.imageSize}<br>
+                       <strong>Border:</strong> 40mm white border (Giclée prints only)<br>
                        <strong>Edition:</strong> ${p.edition}<br>
-                       <strong>Printed by:</strong> ${p.printedBy}<br>
-                       <strong>Location:</strong> ${p.location}
+                       <strong>Printer:</strong> ${p.printedBy}<br>
+                       <div style="margin-top: 12px; font-size: 11px; color: #888; line-height: 1.4; border-left: 2px solid #eee; padding-left: 10px;">
+                         Produced to highest archival standards using pigmented inks on premium archival paper.
+                       </div>
                      </div>
                    </details>
                  </div>
 
-                 <div class="option-item" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; font-style: italic; font-size: 12px;">
-                   <span>Custom Size / Other Enquiries</span>
-                   <span>Enquire</span>
-                 </div>
+
                </div>
                
                ${p.originalAvailable ? `<div id="original-${p.id}" class="print-options">
