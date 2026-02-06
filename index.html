@@ -183,161 +183,26 @@
   </div>
 
   <footer>
-    Ian Cocks paints landscapes of the Banks Peninsula and surrounding
-    Canterbury region. Original works are mostly held in galleries or private
-    collections. High-quality archival prints are available to order.<br /><br />
+    Ian Cocks paints landscapes of the Banks Peninsula and surrounding Canterbury region. Original works and
+    high-quality archival prints are available to order.<br /><br />
 
     <span id="contact-link"></span>
 
   </footer>
 
+  <script src="data/paintings.js"></script>
   <script>
-    const paintings = [
-      {
-        id: 5,
-        src: './5.jpeg',
-        title: 'Whakaraupō / Lyttelton Harbour',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Lyttelton Harbour / Whakaraupō',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm'
-      },
-      {
-        id: 3,
-        src: './3.jpeg',
-        title: 'Banks Peninsula Study I',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Banks Peninsula',
-        imageSize: '300 mm x 200 mm',
-        totalSize: '380 mm x 280 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$180',
-          full: '$350',
-          canvasHalf: '$280',
-          canvasFull: '$480'
-        },
-        size: '30 x 40cm'
-      },
-      {
-        id: 4,
-        src: './4.jpeg',
-        title: 'Banks Peninsula Study II',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Banks Peninsula',
-        imageSize: '300 mm x 200 mm',
-        totalSize: '380 mm x 280 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$180',
-          full: '$350',
-          canvasHalf: '$280',
-          canvasFull: '$480'
-        },
-        size: '30 x 40cm'
-      },
-      {
-        id: 6,
-        src: './6.jpeg',
-        title: 'Port Levy Rocks',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2025',
-        details: 'Original - Private Collection',
-        location: 'View from Wharf Road across Port Levy',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: '3',
-        printedBy: 'Artful Images',
-        printingDetails: 'This print reproduces my original painting faithfully and is inspired by the landscapes of Banks Peninsula. It has been produced to the highest archival standards using pigmented inks to ensure long-term colour stability and quality and printed on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$280',
-          full: '$500',
-          canvasHalf: '$420',
-          canvasFull: '$650'
-        },
-        size: '50 x 70cm'
-      },
-      {
-        id: 7,
-        src: './7.jpeg',
-        title: 'Diamond Harbour',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original in Gallery',
-        location: 'Diamond Harbour',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm',
-        originalAvailable: true,
-        originalMedium: 'Acrylic on canvas',
-        originalSize: '500 mm x 340 mm',
-        originalPrice: 'POA'
-      },
-      {
-        id: 1,
-        src: './1.jpeg',
-        title: 'The Boathouses',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original in Gallery',
-        location: 'Banks Peninsula',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm',
-        originalAvailable: true,
-        originalMedium: 'Acrylic on canvas',
-        originalSize: '500 mm x 340 mm',
-        originalPrice: 'POA'
-      }
-    ];
+    // Paintings data is loaded from data/paintings.js
 
     function renderGallery() {
       const gallery = document.getElementById('gallery');
-      gallery.innerHTML = paintings
+      // Ensure paintingsData exists before trying to map it
+      if (typeof paintingsData === 'undefined') {
+        gallery.innerHTML = '<p>Error loading gallery data.</p>';
+        return;
+      }
+
+      gallery.innerHTML = paintingsData
         .map(
           (p) => `
           <div class="painting-item">
@@ -348,8 +213,8 @@
               ${p.year} — ${p.details}
             </div>
             <div class="order-section">
-              <div class="order-button" onclick="toggleOptions(${p.id})">Order a Print</div>
-              ${p.originalAvailable ? `<div class="order-button" style="margin-top: 25px;" onclick="toggleOriginal(${p.id})">Buy Original Painting</div>` : ''}
+              <div class="order-button" style="margin-right: 10px;" onclick="toggleOptions(${p.id})">Order a Print</div>
+              ${p.originalAvailable ? `<div class="order-button" onclick="toggleOriginal(${p.id})">Buy Original</div>` : ''}
                              <div id="options-${p.id}" class="print-options">
                  <div style="margin-bottom: 25px;">
                    <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Giclée on Archival Paper</div>
