@@ -94,17 +94,6 @@
       color: #000;
     }
 
-    .green-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background-color: #2ecc71;
-      border-radius: 50%;
-      margin-right: 6px;
-      vertical-align: middle;
-      margin-top: -2px;
-    }
-
     .print-options {
       display: none;
       margin-top: 10px;
@@ -205,6 +194,15 @@
   <script>
     // Paintings data is loaded from data/paintings.js
 
+    function calculateTotalSize(imageSizeStr, border) {
+      if (!imageSizeStr) return '';
+      const match = imageSizeStr.match(/(\d+)\s*x\s*(\d+)/);
+      if (!match) return imageSizeStr;
+      const w = parseInt(match[1]) + (border * 2);
+      const h = parseInt(match[2]) + (border * 2);
+      return `${w} x ${h} mm`;
+    }
+
     function renderGallery() {
       const gallery = document.getElementById('gallery');
       // Ensure paintingsData exists before trying to map it
@@ -221,75 +219,72 @@
             <div class="painting-details">
               <span class="painting-title">${p.title}</span><br>
               ${p.location ? p.location + '<br>' : ''}
-              ${p.year} — ${p.details}
+              ${p.year} — ${p.original.sold ? 'Original - Sold' : 'Original Available'}
             </div>
             <div class="order-section">
               <div class="order-button" style="margin-right: 4px;" onclick="toggleOptions(${p.id})">Order a Print</div>
-              ${p.originalAvailable ? `<div class="order-button" onclick="toggleOriginal(${p.id})"><span class="green-dot"></span>Buy Original</div>` : ''}
-                             <div id="options-${p.id}" class="print-options">
-                 <div style="margin-bottom: 25px;">
-                   <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Giclée on Archival Paper</div>
-                   <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
-                     Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper.<br>
-                     Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.<br>
-                     <span style="color: #444;">Measurements include a 40mm white border.</span>
-                   </div>
-                   <div class="option-item">
-                     <span>Half Size (250 x 170 mm)</span>
-                     <span style="font-weight: bold;">${p.prices.half}</span>
-                   </div>
-                   <div class="option-item">
-                     <span>Full Size (580 x 420 mm)</span>
-                     <span style="font-weight: bold;">${p.prices.full}</span>
-                   </div>
-                 </div>
+              ${!p.original.sold ? `<div class="order-button" onclick="toggleOriginal(${p.id})">Buy Original</div>` : ''}
+              <div id="options-${p.id}" class="print-options">
+                <div style="margin-bottom: 25px;">
+                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Giclée on Archival Paper</div>
+                  <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
+                    Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper.<br>
+                    Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.<br>
+                    
+                  </div>
+                  <div class="option-item">
+                    <span>Half Size (${p.giclee.halfSize})</span>
+                    <span style="font-weight: bold;">${p.giclee.prices.half}</span>
+                  </div>
+                  <div class="option-item">
+                    <span>Full Size (${calculateTotalSize(p.giclee.fullSize, p.giclee.border)})</span>
+                    <span style="font-weight: bold;">${p.giclee.prices.full}</span>
+                  </div>
+                  <em><span style="color: #444;">Measurements include a 40mm white border.</span></em>
+                </div>
 
-                 <div style="margin-bottom: 25px;">
-                   <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Canvas Wrap</div>
-                   <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
-                     Giclée print on canvas stretched around a wooden frame.<br>
-                     Gallery-ready without additional framing.
-                   </div>
-                   <div class="option-item">
-                     <span>Half Size (250 x 170 mm)</span>
-                     <span style="font-weight: bold;">${p.prices.canvasHalf}</span>
-                   </div>
-                   <div class="option-item">
-                     <span>Full Size (${p.originalSize || p.size})</span>
-                     <span style="font-weight: bold;">${p.prices.canvasFull}</span>
-                   </div>
-                 </div>
+                <div style="margin-bottom: 25px;">
+                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Canvas Wrap</div>
+                  <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
+                    Giclée print on canvas stretched around a wooden frame.<br>
+                    Gallery-ready without additional framing.
+                  </div>
+                  <div class="option-item">
+                    <span>Half Size (${p.giclee.halfSize})</span>
+                    <span style="font-weight: bold;">${p.canvas.prices.half}</span>
+                  </div>
+                  <div class="option-item">
+                    <span>Full Size (${p.original.size})</span>
+                    <span style="font-weight: bold;">${p.canvas.prices.full}</span>
+                  </div>
+                </div>
 
-                 <div class="order-button" style="background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
+                <div class="order-button" style="background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
 
-                 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
-                   <details>
-                     <summary style="cursor: pointer; font-size: 13px; color: #666;">View Production Specs</summary>
-                     <div style="font-size: 13px; line-height: 1.6; color: #444; margin-top: 15px;">
-                       <strong>Original Medium:</strong> Acrylic Painting<br>
-                       <strong>Image Size:</strong> ${p.imageSize}<br>
-                       <strong>Border:</strong> 40mm white border (Giclée prints only)<br>
-                       <strong>Edition:</strong> ${p.edition}<br>
-                       <strong>Printer:</strong> ${p.printedBy}<br>
-                       <div style="margin-top: 12px; font-size: 11px; color: #888; line-height: 1.4; border-left: 2px solid #eee; padding-left: 10px;">
-                         Produced to highest archival standards using pigmented inks on premium archival paper.
-                       </div>
-                     </div>
-                   </details>
-                 </div>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
+                  <details>
+                    <summary style="cursor: pointer; font-size: 13px; color: #666;">View Production Specs</summary>
+                    <div style="font-size: 13px; line-height: 1.6; color: #444; margin-top: 15px;">
+                      <strong>Original Medium:</strong> ${p.original.medium}<br>
+                      <strong>Original Painting Size:</strong> ${p.original.size}<br>
+                      <strong>Edition:</strong> ${p.giclee.edition}<br>
+
+                    </div>
+                  </details>
+                </div>
 
 
-               </div>
-               
-               ${p.originalAvailable ? `<div id="original-${p.id}" class="print-options">
-                 <div style="font-size: 14px; font-weight: bold; margin-bottom: 15px;">Original Painting Details</div>
-                 <div style="font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 20px;">
-                   <div class="option-item"><span>Medium</span><span style="font-weight: bold;">${p.originalMedium}</span></div>
-                   <div class="option-item"><span>Size</span><span style="font-weight: bold;">${p.originalSize}</span></div>
-                   <div class="option-item"><span>Price</span><span style="font-weight: bold;">${p.originalPrice}</span></div>
-                 </div>
-                 <div class="order-button" style="background: #000; color: #fff;" onclick="orderOriginal('${p.title}')">Email Ian to Buy</div>
-               </div>` : ''}
+              </div>
+              
+              ${!p.original.sold ? `<div id="original-${p.id}" class="print-options">
+                  <div style="font-size: 14px; font-weight: bold; margin-bottom: 15px;">Original Painting Details</div>
+                  <div style="font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 20px;">
+                    <div class="option-item"><span>Medium</span><span style="font-weight: bold;">${p.original.medium}</span></div>
+                    <div class="option-item"><span>Size</span><span style="font-weight: bold;">${p.original.size}</span></div>
+                    <div class="option-item"><span>Price</span><span style="font-weight: bold;">${p.original.price}</span></div>
+                  </div>
+                  <div class="order-button" style="background: #000; color: #fff;" onclick="orderOriginal('${p.title}')">Email Ian to Buy</div>
+                </div>` : ''}
             </div>
           </div>
         `
