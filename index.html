@@ -192,143 +192,22 @@
   </footer>
 
   <script>
-    const paintings = [
-      {
-        id: 5,
-        src: './5.jpeg',
-        title: 'Whakaraupō / Lyttelton Harbour',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Lyttelton Harbour / Whakaraupō',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm'
-      },
-      {
-        id: 3,
-        src: './3.jpeg',
-        title: 'Banks Peninsula Study I',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Banks Peninsula',
-        imageSize: '300 mm x 200 mm',
-        totalSize: '380 mm x 280 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$180',
-          full: '$350',
-          canvasHalf: '$280',
-          canvasFull: '$480'
-        },
-        size: '30 x 40cm'
-      },
-      {
-        id: 4,
-        src: './4.jpeg',
-        title: 'Banks Peninsula Study II',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original - Sold',
-        location: 'Banks Peninsula',
-        imageSize: '300 mm x 200 mm',
-        totalSize: '380 mm x 280 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$180',
-          full: '$350',
-          canvasHalf: '$280',
-          canvasFull: '$480'
-        },
-        size: '30 x 40cm'
-      },
-      {
-        id: 6,
-        src: './6.jpeg',
-        title: 'Port Levy Rocks',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2025',
-        details: 'Original - Private Collection',
-        location: 'View from Wharf Road across Port Levy',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: '3',
-        printedBy: 'Artful Images',
-        printingDetails: 'This print reproduces my original painting faithfully and is inspired by the landscapes of Banks Peninsula. It has been produced to the highest archival standards using pigmented inks to ensure long-term colour stability and quality and printed on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$280',
-          full: '$500',
-          canvasHalf: '$420',
-          canvasFull: '$650'
-        },
-        size: '50 x 70cm'
-      },
-      {
-        id: 7,
-        src: './7.jpeg',
-        title: 'Diamond Harbour',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original in Gallery',
-        location: 'Diamond Harbour',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm'
-      },
-      {
-        id: 1,
-        src: './1.jpeg',
-        title: 'The Boathouses',
-        artist: 'Ian Cocks',
-        medium: 'Fine art giclée print from an original acrylic painting',
-        year: '2024',
-        details: 'Original in Gallery',
-        location: 'Banks Peninsula',
-        imageSize: '500 mm x 340 mm',
-        totalSize: '580 mm x 420 mm',
-        edition: 'Open Edition',
-        printedBy: 'Artful Images',
-        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
-        prices: {
-          half: '$225',
-          full: '$420',
-          canvasHalf: '$350',
-          canvasFull: '$580'
-        },
-        size: '40 x 60cm'
+    let paintings = [];
+
+    async function loadPaintings() {
+      try {
+        const response = await fetch('./data/paintings.json');
+        paintings = await response.json();
+        renderGallery();
+      } catch (error) {
+        console.error('Error loading paintings:', error);
       }
-    ];
+    }
 
     function renderGallery() {
       const gallery = document.getElementById('gallery');
+      if (!gallery) return;
+
       gallery.innerHTML = paintings
         .map(
           (p) => `
@@ -412,8 +291,8 @@
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
 
-    // Initial render
-    renderGallery();
+    // Initial load
+    loadPaintings();
 
     // Footer email link
     const u = 'skcocdnai';
