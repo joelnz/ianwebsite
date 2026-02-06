@@ -1,164 +1,426 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ian Cocks – Landscape Paintings</title>
-    <meta
-      name="description"
-      content="Landscape paintings of Banks Peninsula and Canterbury by Ian Cocks — originals and prints available"
-    />
-    <meta
-      name="keywords"
-      content="Ian Cocks, Landscape Painting, Christchurch Art, Banks Peninsula, Canterbury Art, Buy Prints, New Zealand Art"
-    />
-    <meta name="author" content="Ian Cocks" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ian Cocks – Landscape Paintings" />
-    <meta
-      property="og:description"
-      content="Landscape paintings of Banks Peninsula and Canterbury by Ian Cocks — originals and prints available."
-    />
-    <meta property="og:image" content="https://iancocks.info/4.jpeg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://iancocks.info" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ian Cocks – Landscape Paintings</title>
+  <meta name="description"
+    content="Landscape paintings of Banks Peninsula and Canterbury by Ian Cocks — originals and prints available" />
+  <meta name="keywords"
+    content="Ian Cocks, Landscape Painting, Christchurch Art, Banks Peninsula, Canterbury Art, Buy Prints, New Zealand Art" />
+  <meta name="author" content="Ian Cocks" />
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ian Cocks – Landscape Paintings" />
+  <meta property="og:description"
+    content="Landscape paintings of Banks Peninsula and Canterbury by Ian Cocks — originals and prints available." />
+  <meta property="og:image" content="https://iancocks.info/4.jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iancocks.info" />
 
-    <style>
-      body {
-        margin: 0;
-        font-family: sans-serif;
-        background: #fff;
-        color: #000;
-      }
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Times New Roman', serif;
+      background: #fff;
+      color: #000;
+    }
+
+    header {
+      padding: 25px 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.0603em;
+      font-size: 15px;
+    }
+
+    header img {
+      width: 35px;
+      position: absolute;
+      left: 38px;
+      mix-blend-mode: multiply;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+    }
+
+    .painting-item {
+      margin-bottom: 60px;
+    }
+
+    .painting-item img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .painting-details {
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .painting-title {
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .order-section {
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      font-size: 13px;
+    }
+
+    .order-button {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid #000;
+      text-decoration: none;
+      color: #000;
+      margin-top: 10px;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+    }
+
+    .order-button:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .print-options {
+      display: none;
+      margin-top: 10px;
+      background: #f9f9f9;
+      padding: 15px;
+    }
+
+    .print-options.active {
+      display: block;
+    }
+
+    .option-item {
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    footer {
+      width: 100%;
+      padding: 15px;
+      line-height: 1.4;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    footer u {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    .archival-info {
+      font-size: 14px;
+      color: #333;
+      margin-top: 20px;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+    }
+
+    a,
+    a:visited {
+      color: black;
+    }
+
+    /* === Desktop styles === */
+    @media (min-width: 900px) {
       header {
-        padding: 25px 15px;
-
-        font-family: 'Times New Roman', serif;
-        text-transform: uppercase;
-        letter-spacing: 0.0603em;
-        font-size: 15px;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 10;
+        padding: 0;
       }
 
       header img {
         width: 35px;
         position: absolute;
-        left: 38px;
+        left: 23px;
         mix-blend-mode: multiply;
       }
 
-      .image-container {
-        display: flex;
-        flex-direction: column;
-        padding: 15px;
-      }
-
-      .image-container img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 20px;
-      }
-
       footer {
-        width: 100%;
-        padding: 15px;
-        font-family: 'Times New Roman', serif;
-        line-height: 1.4;
-        font-size: 15px;
-        box-sizing: border-box;
+        position: fixed;
+        bottom: 20px;
+        left: 15px;
+        width: 220px;
+        padding: 0;
+        z-index: 10;
       }
 
-      footer u {
-        color: blue;
-        text-decoration: underline;
+      .image-container {
+        margin-left: 280px;
+        max-width: 900px;
+        padding-right: 20px;
       }
+    }
+  </style>
+</head>
 
-      a,
-      a:visited {
-        color: black;
+<body>
+  <header>
+    Ian Cocks
+    <img src="blot.png" alt="paint splotch" />
+  </header>
+
+  <div class="image-container" id="gallery">
+    <!-- Paintings will be rendered here -->
+  </div>
+
+  <footer>
+    Ian Cocks paints landscapes of the Banks Peninsula and surrounding
+    Canterbury region. Original works are mostly held in galleries or private
+    collections. High-quality archival prints are available to order.<br /><br />
+
+    <span id="contact-link"></span>
+
+  </footer>
+
+  <script>
+    const paintings = [
+      {
+        id: 5,
+        src: './5.jpeg',
+        title: 'Whakaraupō / Lyttelton Harbour',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2024',
+        details: 'Original - Sold',
+        location: 'Lyttelton Harbour / Whakaraupō',
+        imageSize: '500 mm x 340 mm',
+        totalSize: '580 mm x 420 mm',
+        edition: 'Open Edition',
+        printedBy: 'Artful Images',
+        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$225',
+          full: '$420',
+          canvasHalf: '$350',
+          canvasFull: '$580'
+        },
+        size: '40 x 60cm'
+      },
+      {
+        id: 3,
+        src: './3.jpeg',
+        title: 'Banks Peninsula Study I',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2024',
+        details: 'Original - Sold',
+        location: 'Banks Peninsula',
+        imageSize: '300 mm x 200 mm',
+        totalSize: '380 mm x 280 mm',
+        edition: 'Open Edition',
+        printedBy: 'Artful Images',
+        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$180',
+          full: '$350',
+          canvasHalf: '$280',
+          canvasFull: '$480'
+        },
+        size: '30 x 40cm'
+      },
+      {
+        id: 4,
+        src: './4.jpeg',
+        title: 'Banks Peninsula Study II',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2024',
+        details: 'Original - Sold',
+        location: 'Banks Peninsula',
+        imageSize: '300 mm x 200 mm',
+        totalSize: '380 mm x 280 mm',
+        edition: 'Open Edition',
+        printedBy: 'Artful Images',
+        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$180',
+          full: '$350',
+          canvasHalf: '$280',
+          canvasFull: '$480'
+        },
+        size: '30 x 40cm'
+      },
+      {
+        id: 6,
+        src: './6.jpeg',
+        title: 'Port Levy Rocks',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2025',
+        details: 'Original - Private Collection',
+        location: 'View from Wharf Road across Port Levy',
+        imageSize: '500 mm x 340 mm',
+        totalSize: '580 mm x 420 mm',
+        edition: '3',
+        printedBy: 'Artful Images',
+        printingDetails: 'This print reproduces my original painting faithfully and is inspired by the landscapes of Banks Peninsula. It has been produced to the highest archival standards using pigmented inks to ensure long-term colour stability and quality and printed on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$280',
+          full: '$500',
+          canvasHalf: '$420',
+          canvasFull: '$650'
+        },
+        size: '50 x 70cm'
+      },
+      {
+        id: 7,
+        src: './7.jpeg',
+        title: 'Diamond Harbour',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2024',
+        details: 'Original in Gallery',
+        location: 'Diamond Harbour',
+        imageSize: '500 mm x 340 mm',
+        totalSize: '580 mm x 420 mm',
+        edition: 'Open Edition',
+        printedBy: 'Artful Images',
+        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$225',
+          full: '$420',
+          canvasHalf: '$350',
+          canvasFull: '$580'
+        },
+        size: '40 x 60cm'
+      },
+      {
+        id: 1,
+        src: './1.jpeg',
+        title: 'The Boathouses',
+        artist: 'Ian Cocks',
+        medium: 'Fine art giclée print from an original acrylic painting',
+        year: '2024',
+        details: 'Original in Gallery',
+        location: 'Banks Peninsula',
+        imageSize: '500 mm x 340 mm',
+        totalSize: '580 mm x 420 mm',
+        edition: 'Open Edition',
+        printedBy: 'Artful Images',
+        printingDetails: 'Produced to the highest archival standards using pigmented inks on archival quality Epsom Velvet paper.',
+        prices: {
+          half: '$225',
+          full: '$420',
+          canvasHalf: '$350',
+          canvasFull: '$580'
+        },
+        size: '40 x 60cm'
       }
+    ];
 
-      /* === Desktop styles === */
-      @media (min-width: 900px) {
-        header {
-          position: fixed;
-          top: 15px;
-          left: 15px;
-          z-index: 10;
-          padding: 0;
-        }
-        header img {
-          width: 35px;
-          position: absolute;
-          left: 23px;
-          mix-blend-mode: multiply;
-        }
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      gallery.innerHTML = paintings
+        .map(
+          (p) => `
+          <div class="painting-item">
+            <img src="${p.src}" alt="${p.title}" />
+            <div class="painting-details">
+              <span class="painting-title">${p.title}</span><br>
+              ${p.location ? p.location + '<br>' : ''}
+              ${p.year} — ${p.details}
+            </div>
+            <div class="order-section">
+              <div class="order-button" onclick="toggleOptions(${p.id})">Order a Print</div>
+              <div id="options-${p.id}" class="print-options">
+                <div style="margin-bottom: 20px; font-size: 13px; line-height: 1.5; color: #444;">
+                  <strong>Artist:</strong> ${p.artist}<br>
+                  <strong>Title:</strong> ${p.title}<br>
+                  <strong>Medium:</strong> ${p.medium}<br>
+                  <strong>Dimensions:</strong> Image: ${p.imageSize} | Total (incl. border): ${p.totalSize}<br>
+                  <strong>Year of Original:</strong> ${p.year}<br>
+                  <strong>Edition:</strong> ${p.edition}<br>
+                  <strong>Printed by:</strong> ${p.printedBy}<br>
+                  <strong>Location:</strong> ${p.location}
+                </div>
+                
+                <div style="margin-bottom: 10px; font-weight: bold;">Giclée on Archival Paper:</div>
+                <div class="option-item">
+                  <span>Half Size (Approx.)</span>
+                  <span>${p.prices.half}</span>
+                </div>
+                <div class="option-item">
+                  <span>Full Size (${p.totalSize})</span>
+                  <span>${p.prices.full}</span>
+                </div>
 
-        footer {
-          position: fixed;
-          bottom: 20px;
-          left: 15px;
-          width: 18%;
-          padding: 0;
-          z-index: 10;
-        }
+                <div style="margin: 15px 0 10px; font-weight: bold;">Canvas Wrap:</div>
+                <div class="option-item">
+                  <span>Half Size (Approx.)</span>
+                  <span>${p.prices.canvasHalf}</span>
+                </div>
+                <div class="option-item">
+                  <span>Full Size</span>
+                  <span>${p.prices.canvasFull}</span>
+                </div>
 
-        .image-container {
-          margin-left: calc(
-            18% + 30px
-          ); /* space for the fixed footer + buffer */
-          max-width: calc(
-            100% - 18% - 50px
-          ); /* prevent overflowing the right */
-          padding-right: 20px;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      Ian Cocks
-      <img src="blot.png" alt="paint splotch" />
-    </header>
+                <div class="option-item" style="margin-top: 10px; font-style: italic;">
+                  <span>Custom Size / Other Enquiries</span>
+                  <span>Enquire</span>
+                </div>
 
-    <div class="image-container">
-      <img src="./5.jpeg" alt="Landscape Painting 5 by Ian Cocks" />
-      <img src="./3.jpeg" alt="Landscape Painting 3 by Ian Cocks" />
-      <img src="./4.jpeg" alt="Landscape Painting 4 by Ian Cocks" />
-      <img src="./6.jpeg" alt="Landscape Painting 6 by Ian Cocks" />
-      <img src="./7.jpeg" alt="Landscape Painting 2 by Ian Cocks" />
-      <img src="./1.jpeg" alt="Landscape Painting 1 by Ian Cocks" />
-    </div>
+                <div class="archival-info" style="border:none; padding-top:15px; opacity: 1;">
+                  <strong>Printing Details:</strong><br>
+                  ${p.printingDetails}
+                  <br><br>
+                  Each print is titled and signed by the artist. 
+                  Supplied on cardboard backing in a protective sleeve.
+                </div>
 
-    <footer>
-      Ian Cocks paints landscapes of the Banks Peninsula and surrounding
-      Canterbury region. Original works and prints are available. Please
-      enquire for more information.<br /><br />
+                <div class="order-button" style="margin-top:20px; background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
+              </div>
+            </div>
+          </div>
+        `
+        )
+        .join('');
+    }
 
-      <span id="link"></span>
-    </footer>
-    <script>
-      const u = 'skcocdnai'; // reversed 'ian.cocks'
-      const d = 'moc.duolci'; // reversed 'example.com'
+    function toggleOptions(id) {
+      const options = document.getElementById(`options-${id}`);
+      const isActive = options.classList.contains('active');
+      // Close others
+      document.querySelectorAll('.print-options').forEach(el => el.classList.remove('active'));
+      if (!isActive) options.classList.add('active');
+    }
 
-      const email = `${u.split('').reverse().join('')}@${d
-        .split('')
-        .reverse()
-        .join('')}`;
+    function orderPrint(title) {
+      const u = 'skcocdnai';
+      const d = 'moc.duolci';
+      const email = `${u.split('').reverse().join('')}@${d.split('').reverse().join('')}`;
+      const subject = encodeURIComponent(`Order Print: ${title}`);
+      const body = encodeURIComponent(`Hi Ian,\n\nI am interested in ordering a print of "${title}".\n\nPlease let me know the next steps.\n\nThank you.`);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    }
 
-      // Reverse and split domain only on first dot for display
-      const reversedDomain = d.split('').reverse().join('');
-      const domainParts = reversedDomain.split('.');
-      const display = `Contact Ian`;
+    // Initial render
+    renderGallery();
 
-      document.getElementById(
-        'link',
-      ).innerHTML = `<a href="mailto:${email}">${display}</a>`;
-    </script>
-  </body>
+    // Footer email link
+    const u = 'skcocdnai';
+    const d = 'moc.duolci';
+    const email = `${u.split('').reverse().join('')}@${d.split('').reverse().join('')}`;
+    document.getElementById('contact-link').innerHTML = `<a href="mailto:${email}">Contact Ian</a>`;
+  </script>
+</body>
+
 </html>
