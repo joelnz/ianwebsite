@@ -73,8 +73,8 @@
     }
 
     .order-section {
-      border-top: 1px solid #eee;
-      padding-top: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 15px;
       font-size: 13px;
     }
 
@@ -130,6 +130,46 @@
       margin-top: 20px;
       border-top: 1px solid #eee;
       padding-top: 15px;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+      font-size: 13px;
+    }
+
+    .tab:hover {
+      background: #f5f5f5;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #000;
+      font-weight: bold;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .info-box {
+      background: #f5f5f5;
+      padding: 12px;
+      margin-bottom: 15px;
+      font-size: 12px;
+      line-height: 1.6;
+      border-left: 3px solid #000;
     }
 
     a,
@@ -301,7 +341,11 @@
           canvasHalf: '$350',
           canvasFull: '$580'
         },
-        size: '40 x 60cm'
+        size: '40 x 60cm',
+        originalAvailable: true,
+        originalMedium: 'Acrylic on canvas',
+        originalSize: '500 mm x 340 mm',
+        originalPrice: 'POA'
       },
       {
         id: 1,
@@ -323,7 +367,11 @@
           canvasHalf: '$350',
           canvasFull: '$580'
         },
-        size: '40 x 60cm'
+        size: '40 x 60cm',
+        originalAvailable: true,
+        originalMedium: 'Acrylic on canvas',
+        originalSize: '500 mm x 340 mm',
+        originalPrice: 'POA'
       }
     ];
 
@@ -341,53 +389,74 @@
             </div>
             <div class="order-section">
               <div class="order-button" onclick="toggleOptions(${p.id})">Order a Print</div>
-              <div id="options-${p.id}" class="print-options">
-                <div style="margin-bottom: 20px; font-size: 13px; line-height: 1.5; color: #444;">
-                  <strong>Artist:</strong> ${p.artist}<br>
-                  <strong>Title:</strong> ${p.title}<br>
-                  <strong>Medium:</strong> ${p.medium}<br>
-                  <strong>Dimensions:</strong> Image: ${p.imageSize} | Total (incl. border): ${p.totalSize}<br>
-                  <strong>Year of Original:</strong> ${p.year}<br>
-                  <strong>Edition:</strong> ${p.edition}<br>
-                  <strong>Printed by:</strong> ${p.printedBy}<br>
-                  <strong>Location:</strong> ${p.location}
-                </div>
-                
-                <div style="margin-bottom: 10px; font-weight: bold;">Giclée on Archival Paper:</div>
-                <div class="option-item">
-                  <span>Half Size (Approx.)</span>
-                  <span>${p.prices.half}</span>
-                </div>
-                <div class="option-item">
-                  <span>Full Size (${p.totalSize})</span>
-                  <span>${p.prices.full}</span>
-                </div>
+              ${p.originalAvailable ? `<div class="order-button" style="margin-top: 25px;" onclick="toggleOriginal(${p.id})">Buy Original Painting</div>` : ''}
+              
+               <div id="options-${p.id}" class="print-options">
+                 <div class="tabs">
+                   <div class="tab active" onclick="switchTab(${p.id}, 'prints')">Print Options</div>
+                   <div class="tab" onclick="switchTab(${p.id}, 'details')">Details</div>
+                 </div>
 
-                <div style="margin: 15px 0 10px; font-weight: bold;">Canvas Wrap:</div>
-                <div class="option-item">
-                  <span>Half Size (Approx.)</span>
-                  <span>${p.prices.canvasHalf}</span>
-                </div>
-                <div class="option-item">
-                  <span>Full Size</span>
-                  <span>${p.prices.canvasFull}</span>
-                </div>
+                 <div id="tab-prints-${p.id}" class="tab-content active">
+                   <div style="margin-bottom: 10px; font-weight: bold;">Giclée on Archival Paper:</div>
+                   <div style="margin-bottom: 15px; font-size: 13px; color: #444; line-height: 1.6;">
+                     Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper, offering exceptional color accuracy and 100+ year longevity. Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.
+                   </div>
 
-                <div class="option-item" style="margin-top: 10px; font-style: italic;">
-                  <span>Custom Size / Other Enquiries</span>
-                  <span>Enquire</span>
-                </div>
+                   <div class="option-item">
+                     <span>Half Size (Approx.)</span>
+                     <span>${p.prices.half}</span>
+                   </div>
+                   <div class="option-item">
+                     <span>Full Size (${p.totalSize})</span>
+                     <span>${p.prices.full}</span>
+                   </div>
 
-                <div class="archival-info" style="border:none; padding-top:15px; opacity: 1;">
-                  <strong>Printing Details:</strong><br>
-                  ${p.printingDetails}
-                  <br><br>
-                  Each print is titled and signed by the artist. 
-                  Supplied on cardboard backing in a protective sleeve.
-                </div>
+                   <div style="margin-top: 25px; margin-bottom: 10px; font-weight: bold;">Canvas Wrap:</div>
+                   <div style="margin-bottom: 15px; font-size: 13px; color: #444; line-height: 1.6;">
+                     A canvas wrap is a giclée print on canvas that is stretched around a wooden frame, creating a gallery-ready piece that can be hung without additional framing. The image wraps around the edges of the frame for a modern, frameless presentation.
+                   </div>
 
-                <div class="order-button" style="margin-top:20px; background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
-              </div>
+                   <div class="option-item">
+                     <span>Half Size (Approx.)</span>
+                     <span>${p.prices.canvasHalf}</span>
+                   </div>
+                   <div class="option-item">
+                     <span>Full Size</span>
+                     <span>${p.prices.canvasFull}</span>
+                   </div>
+                 </div>
+
+                 <div id="tab-details-${p.id}" class="tab-content">
+                   <div style="font-size: 14px; line-height: 1.6; color: #444;">
+                     <strong>Artist:</strong> ${p.artist}<br>
+                     <strong>Title:</strong> ${p.title}<br>
+                     <strong>Medium:</strong> ${p.medium}<br>
+                     <strong>Dimensions:</strong> Image: ${p.imageSize} | Total (incl. border): ${p.totalSize}<br>
+                     <strong>Year of Original:</strong> ${p.year}<br>
+                     <strong>Edition:</strong> ${p.edition}<br>
+                     <strong>Printed by:</strong> ${p.printedBy}<br>
+                     <strong>Location:</strong> ${p.location}
+                   </div>
+                 </div>
+
+                 <div class="option-item" style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; font-style: italic;">
+                   <span>Custom Size / Other Enquiries</span>
+                   <span>Enquire</span>
+                 </div>
+
+                 <div class="order-button" style="margin-top:20px; background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
+               </div>
+               
+               ${p.originalAvailable ? `<div id="original-${p.id}" class="print-options">
+                 <div style="font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 15px;">
+                   <strong>Original Painting Details:</strong><br>
+                   <strong>Medium:</strong> ${p.originalMedium}<br>
+                   <strong>Size:</strong> ${p.originalSize}<br>
+                   <strong>Price:</strong> ${p.originalPrice}
+                 </div>
+                 <div class="order-button" style="background: #000; color: #fff;" onclick="orderOriginal('${p.title}')">Email Ian to Buy</div>
+               </div>` : ''}
             </div>
           </div>
         `
@@ -403,12 +472,44 @@
       if (!isActive) options.classList.add('active');
     }
 
+    function switchTab(paintingId, tabName) {
+      // Get all tabs and contents for this painting
+      const paintingOptions = document.getElementById(`options-${paintingId}`);
+      const tabs = paintingOptions.querySelectorAll('.tab');
+      const contents = paintingOptions.querySelectorAll('.tab-content');
+
+      // Remove active class from all
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Add active class to selected
+      event.target.classList.add('active');
+      document.getElementById(`tab-${tabName}-${paintingId}`).classList.add('active');
+    }
+
     function orderPrint(title) {
       const u = 'skcocdnai';
       const d = 'moc.duolci';
       const email = `${u.split('').reverse().join('')}@${d.split('').reverse().join('')}`;
       const subject = encodeURIComponent(`Order Print: ${title}`);
       const body = encodeURIComponent(`Hi Ian,\n\nI am interested in ordering a print of "${title}".\n\nPlease let me know the next steps.\n\nThank you.`);
+      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+    }
+
+    function toggleOriginal(id) {
+      const original = document.getElementById(`original-${id}`);
+      const isActive = original.classList.contains('active');
+      // Close all print-options
+      document.querySelectorAll('.print-options').forEach(el => el.classList.remove('active'));
+      if (!isActive) original.classList.add('active');
+    }
+
+    function orderOriginal(title) {
+      const u = 'skcocdnai';
+      const d = 'moc.duolci';
+      const email = `${u.split('').reverse().join('')}@${d.split('').reverse().join('')}`;
+      const subject = encodeURIComponent(`Purchase Original Painting: ${title}`);
+      const body = encodeURIComponent(`Hi Ian,\n\nI am interested in purchasing the original painting "${title}".\n\nPlease let me know the price and availability.\n\nThank you.`);
       window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
     }
 
