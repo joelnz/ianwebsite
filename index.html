@@ -95,10 +95,30 @@
     }
 
     .print-options {
-      display: none;
-      margin-top: 10px;
-      background: #f9f9f9;
-      padding: 15px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in, margin-top 0.3s ease-in-out;
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .print-options.active {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 20px;
+      padding: 10px 0;
+      transition: max-height 0.5s ease-in-out, opacity 0.4s ease-out, margin-top 0.4s ease-in-out;
+    }
+
+    .blot-icon {
+      width: 18px !important;
+      height: auto !important;
+      margin-right: 10px;
+      margin-bottom: 4px !important;
+      mix-blend-mode: multiply;
+      opacity: 0.8;
+      transform: translateY(1px);
     }
 
     .print-options.active {
@@ -226,25 +246,29 @@
               ${!p.original.sold ? `<div class="order-button" onclick="toggleOriginal(${p.id})">Buy Original</div>` : ''}
               <div id="options-${p.id}" class="print-options">
                 <div style="margin-bottom: 25px;">
-                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Giclée on Archival Paper</div>
+                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px; display: flex; align-items: center;">
+                    <img src="blot.png" class="blot-icon" style="filter: hue-rotate(180deg);" />Giclée on Archival Paper
+                  </div>
                   <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
                     Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper.<br>
                     Each print is titled, signed, and supplied on cardboard backing in a protective sleeve.<br>
                     
                   </div>
                   <div class="option-item">
-                    <span>Half Size (${p.giclee.halfSize})</span>
+                    <span>Half Size (${calculateTotalSize(p.giclee.halfSize, p.giclee.border)})</span>
                     <span style="font-weight: bold;">${p.giclee.prices.half}</span>
                   </div>
                   <div class="option-item">
                     <span>Full Size (${calculateTotalSize(p.giclee.fullSize, p.giclee.border)})</span>
                     <span style="font-weight: bold;">${p.giclee.prices.full}</span>
                   </div>
-                  <em><span style="color: #444;">Measurements include a 40mm white border.</span></em>
+                  <em><span style="color: #444;">Measurements include a ${p.giclee.border}mm white border.</span></em>
                 </div>
 
                 <div style="margin-bottom: 25px;">
-                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px;">Canvas Wrap</div>
+                  <div style="font-weight: bold; margin-bottom: 8px; font-size: 14px; display: flex; align-items: center;">
+                    <img src="blot.png" class="blot-icon" style="filter: hue-rotate(45deg);" />Canvas Wrap
+                  </div>
                   <div style="font-size: 12px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
                     Giclée print on canvas stretched around a wooden frame.<br>
                     Gallery-ready without additional framing.

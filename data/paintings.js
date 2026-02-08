@@ -8,84 +8,84 @@ const paintingsData = [
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "500 x 280 mm",
+      "size": "670 x 1090 mm",
       "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "500 x 280 mm",
+      "fullSize": "670 x 1090 mm",
       "border": 40,
-      "halfSize": "250 x 140 mm",
+      "halfSize": "280 x 500 mm",
       "prices": {
-        "half": "$225",
-        "full": "$420"
+        "half": "$310.00",
+        "full": "$950.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$350",
-        "full": "$580"
+        "half": "$320.00",
+        "full": "POA"
       }
     }
   },
   {
     "id": 3,
     "src": "./3.jpeg",
-    "title": "Banks Peninsula Study I",
+    "title": "Akaroa",
     "year": "2024",
-    "location": "Banks Peninsula",
+    "location": "Akaroa harbour",
     "original": {
-      "sold": true,
+      "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "300 x 200 mm",
-      "price": "Sold"
+      "size": "355 x 945 mm",
+      "price": "$2,250"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "300 x 200 mm",
+      "fullSize": "355 x 945 mm",
       "border": 40,
-      "halfSize": "150 x 100 mm",
+      "halfSize": "175 x 470 mm",
       "prices": {
-        "half": "$180",
-        "full": "$350"
+        "half": "$295.00",
+        "full": "$900.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$280",
-        "full": "$480"
+        "half": "$305.00",
+        "full": "POA"
       }
     }
   },
   {
     "id": 4,
     "src": "./4.jpeg",
-    "title": "Banks Peninsula Study II",
-    "year": "2024",
-    "location": "Banks Peninsula",
+    "title": "Port Levy Rocks",
+    "year": "2025",
+    "location": "View from Wharf Road across Port Levy",
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "300 x 200 mm",
+      "size": "600 x 865 mm",
       "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "300 x 200 mm",
+      "fullSize": "600 x 865 mm",
       "border": 40,
-      "halfSize": "150 x 100 mm",
+      "halfSize": "340 x 500 mm",
       "prices": {
-        "half": "$180",
-        "full": "$350"
+        "half": "$320.00",
+        "full": "$975.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$280",
-        "full": "$480"
+        "half": "$330.00",
+        "full": "POA"
       }
     }
   },
@@ -96,86 +96,86 @@ const paintingsData = [
     "year": "2025",
     "location": "View from Puari Road looking towards the Port Levy",
     "original": {
-      "sold": false,
+      "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "500 x 250 mm",
-      "price": "$5000"
+      "size": "526 x 1064 mm",
+      "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "500 x 250 mm",
+      "fullSize": "526 x 1064 mm",
       "border": 40,
-      "halfSize": "250 x 125 mm",
+      "halfSize": "250 x 500 mm",
       "prices": {
-        "half": "$280",
-        "full": "$500"
+        "half": "$315.00",
+        "full": "$975.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$420",
-        "full": "$650"
+        "half": "$325.00",
+        "full": "POA"
       }
     }
   },
   {
     "id": 7,
     "src": "./7.jpeg",
-    "title": "Diamond Harbour",
-    "year": "2024",
-    "location": "Diamond Harbour",
+    "title": "Port Levy Road",
+    "year": "2025",
+    "location": "View along Wharf Road looking towards Port Levy",
     "original": {
       "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "500 x 340 mm",
-      "price": "$5000"
+      "size": "527 x 850 mm",
+      "price": "$2,500"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "500 x 340 mm",
+      "fullSize": "527 x 850 mm",
       "border": 40,
-      "halfSize": "250 x 170 mm",
+      "halfSize": "250 x 420 mm",
       "prices": {
-        "half": "$225",
-        "full": "$420"
+        "half": "$295.00",
+        "full": "$925.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$350",
-        "full": "$580"
+        "half": "$300.00",
+        "full": "POA"
       }
     }
   },
   {
     "id": 1,
     "src": "./1.jpeg",
-    "title": "Duvauchelle Boatsheds",
-    "year": "2025",
-    "location": "View from Seafield Road",
+    "title": "Duvauchelle",
+    "year": "2024",
+    "location": "Devauchelle boatsheds",
     "original": {
       "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "500 x 281 mm",
-      "price": "$5000"
+      "size": "550 x 1030 mm",
+      "price": "$2,500"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Seritech Developments Limited",
-      "fullSize": "500 x 281 mm",
+      "fullSize": "550 x 1030 mm",
       "border": 40,
-      "halfSize": "250 x 140.5 mm",
+      "halfSize": "250 x 500 mm",
       "prices": {
-        "half": "$225",
-        "full": "$420"
+        "half": "$300.00",
+        "full": "$950.00"
       }
     },
     "canvas": {
       "prices": {
-        "half": "$350",
-        "full": "$580"
+        "half": "$310.00",
+        "full": "POA"
       }
     }
   }
