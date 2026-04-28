@@ -1,5 +1,35 @@
 const paintingsData = [
   {
+    "id": 8,
+    "src": "./8.jpeg",
+    "title": "Wainui Rocks",
+    "year": "2026",
+    "location": "View from Wainui Beach across Akaroa Harbour",
+    "original": {
+      "sold": false,
+      "medium": "Acrylic on aluminium composite board",
+      "size": "530 x 1010 mm",
+      "price": "$2,750"
+    },
+    "giclee": {
+      "edition": "Limited Edition of 25",
+      "printer": "Artful Images",
+      "fullSize": "398 x 878 mm",
+      "border": 40,
+      "halfSize": "199 x 439 mm",
+      "prices": {
+        "half": "$310.00",
+        "full": "$950.00"
+      }
+    },
+    "canvas": {
+      "prices": {
+        "half": "$320.00",
+        "full": "POA"
+      }
+    }
+  },
+  {
     "id": 5,
     "src": "./5.jpeg",
     "title": "Port Levy Wharf",
@@ -8,15 +38,15 @@ const paintingsData = [
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "670 x 1090 mm",
+      "size": "564 x 1000 mm",
       "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "670 x 1090 mm",
+      "fullSize": "564 x 1000 mm",
       "border": 40,
-      "halfSize": "280 x 500 mm",
+      "halfSize": "282 x 500 mm",
       "prices": {
         "half": "$310.00",
         "full": "$950.00"
@@ -32,21 +62,21 @@ const paintingsData = [
   {
     "id": 3,
     "src": "./3.jpeg",
-    "title": "Akaroa",
+    "title": "Akaroa harbour",
     "year": "2024",
-    "location": "Akaroa harbour",
+    "location": "",
     "original": {
       "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "355 x 945 mm",
+      "size": "350 x 948 mm",
       "price": "$2,250"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "355 x 945 mm",
+      "fullSize": "350 x 948 mm",
       "border": 40,
-      "halfSize": "175 x 470 mm",
+      "halfSize": "175 x 474 mm",
       "prices": {
         "half": "$295.00",
         "full": "$900.00"
@@ -68,13 +98,13 @@ const paintingsData = [
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "600 x 865 mm",
+      "size": "680 x 1000 mm",
       "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "600 x 865 mm",
+      "fullSize": "680 x 1000 mm",
       "border": 40,
       "halfSize": "340 x 500 mm",
       "prices": {
@@ -98,13 +128,13 @@ const paintingsData = [
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
-      "size": "526 x 1064 mm",
+      "size": "500 x 1000 mm",
       "price": "Sold"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "526 x 1064 mm",
+      "fullSize": "500 x 1000 mm",
       "border": 40,
       "halfSize": "250 x 500 mm",
       "prices": {
@@ -128,15 +158,15 @@ const paintingsData = [
     "original": {
       "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "527 x 850 mm",
+      "size": "620 x 1000 mm",
       "price": "$2,500"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "527 x 850 mm",
+      "fullSize": "620 x 1000 mm",
       "border": 40,
-      "halfSize": "250 x 420 mm",
+      "halfSize": "310 x 500 mm",
       "prices": {
         "half": "$295.00",
         "full": "$925.00"
@@ -152,21 +182,21 @@ const paintingsData = [
   {
     "id": 1,
     "src": "./1.jpeg",
-    "title": "Duvauchelle",
+    "title": "Devauchelle boatsheds",
     "year": "2024",
-    "location": "Devauchelle boatsheds",
+    "location": "",
     "original": {
       "sold": false,
       "medium": "Acrylic on canvas",
-      "size": "550 x 1030 mm",
+      "size": "550 x 1033 mm",
       "price": "$2,500"
     },
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Seritech Developments Limited",
-      "fullSize": "550 x 1030 mm",
+      "fullSize": "550 x 1033 mm",
       "border": 40,
-      "halfSize": "250 x 500 mm",
+      "halfSize": "275 x 516 mm",
       "prices": {
         "half": "$300.00",
         "full": "$950.00"

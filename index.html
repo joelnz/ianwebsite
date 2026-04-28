@@ -248,7 +248,7 @@
               <div id="options-${p.id}" class="print-options">
                 <div style="margin-bottom: 25px;">
                   <div style="font-weight: bold; margin-bottom: 8px; font-size: 15px; display: flex; align-items: center;">
-                    Giclée on Archival Paper
+                    Limited Edition Prints on Archival Paper
                   </div>
                   <div style="font-size: 15px; color: #666; margin-bottom: 12px; line-height: 1.5; max-width: 500px;">
                     Museum-quality fine art prints using archival pigment inks on premium Epson Velvet paper.
@@ -279,24 +279,14 @@
                     <span style="font-weight: bold;">${p.canvas.prices.half}</span>
                   </div>
                   <div class="option-item">
-                    <span>Full Size (${p.original.size})</span>
+                    <span>Full Size (${p.giclee.fullSize})</span>
                     <span style="font-weight: bold;">${p.canvas.prices.full}</span>
                   </div>
                 </div>
 
                 <div class="order-button" style="background: #000; color: #fff;" onclick="orderPrint('${p.title}')">Email Ian to Order</div>
 
-                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
-                  <details>
-                    <summary style="cursor: pointer; font-size: 14px; color: #666;">View Production Specs</summary>
-                    <div style="font-size: 14px; line-height: 1.6; color: #444; margin-top: 15px;">
-                      <strong>Original Medium:</strong> ${p.original.medium}<br>
-                      <strong>Original Painting Size:</strong> ${p.original.size}<br>
-                      <strong>Edition:</strong> ${p.giclee.edition}<br>
 
-                    </div>
-                  </details>
-                </div>
 
 
               </div>
