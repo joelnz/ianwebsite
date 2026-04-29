@@ -124,7 +124,7 @@ const paintingsData = [
     "src": "./6.jpeg",
     "title": "Port Levy Wharf Rocks",
     "year": "2025",
-    "location": "View from Puari Road looking towards the Port Levy",
+    "location": "View from Puari Road looking towards Port Levy",
     "original": {
       "sold": true,
       "medium": "Acrylic on canvas",
