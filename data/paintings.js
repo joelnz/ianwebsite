@@ -64,7 +64,7 @@ const paintingsData = [
     "src": "./9.jpeg",
     "title": "Pigeon Bay",
     "year": "2026",
-    "location": "Pigeon Bay",
+    "location": "View of a Pigeon Bay boatshed from beyond Wharf Road",
     "original": {
       "sold": false,
       "medium": "Acrylic on aluminium composite board",
@@ -74,11 +74,11 @@ const paintingsData = [
     "giclee": {
       "edition": "Limited Edition of 25",
       "printer": "Artful Images",
-      "fullSize": "590 x 1063 mm",
+      "fullSize": "572 x 1045 mm",
       "border": 40,
-      "halfSize": "295 x 530 mm",
+      "halfSize": "286 x 522 mm",
       "prices": {
-        "half": "$310.00",
+        "half": "$320.00",
         "full": "$950.00"
       }
     },
