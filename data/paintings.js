@@ -60,6 +60,36 @@ const paintingsData = [
     }
   },
   {
+    "id": 9,
+    "src": "./9.jpeg",
+    "title": "Pigeon Bay",
+    "year": "2026",
+    "location": "Pigeon Bay",
+    "original": {
+      "sold": false,
+      "medium": "Acrylic on aluminium composite board",
+      "size": "590 x 1063 mm",
+      "price": "$2,950"
+    },
+    "giclee": {
+      "edition": "Limited Edition of 25",
+      "printer": "Artful Images",
+      "fullSize": "590 x 1063 mm",
+      "border": 40,
+      "halfSize": "295 x 530 mm",
+      "prices": {
+        "half": "$310.00",
+        "full": "$950.00"
+      }
+    },
+    "canvas": {
+      "prices": {
+        "half": "$320.00",
+        "full": "POA"
+      }
+    }
+  },
+  {
     "id": 3,
     "src": "./3.jpeg",
     "title": "Akaroa harbour",
